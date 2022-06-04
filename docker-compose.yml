@@ -1,0 +1,53 @@
+version: "3"
+
+services:
+  test-softdesing-node:
+    build: .
+    container_name: test-softdesing-node
+    ports:
+      - "3345:3345"
+    volumes:
+      - .:/home/node/app/
+      - /home/node/app/node_modules
+    environment:
+      - APP_API_URL=https://alugueldelivrosonline.com.br
+      - APP_SECRET_USER=9epos6woirmx9003snhs6ww73uw92rsxbzy
+      - APP_EXPIRESIN=24h
+      - MAIL_DRIVER=smtp
+      - MAIL_HOST=smtp.eadconcept.com.br
+      - MAIL_PORT=587
+      - MAIL_SECURE=false
+      - MAIL_USER=rodrigo@eadconcept.com.br
+      - MAIL_PASS=Rsz&1979&07
+      - DB_TYPE=postgres
+      - DB_HOST=test-softdesing-node-postgres
+      - DB_PORT=5432
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=afg98ohilk3@ui
+      - DB_DATABASE=db-test-softdesing-node
+      - STORAGE_DRIVER=disk
+    command: yarn dev:server
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "5"
+    depends_on:
+      - test-softdesing-node-postgres
+    networks:
+      - test-softdesing-node-network
+  test-softdesing-node-postgres:
+    image: postgres:latest
+    container_name: test-softdesing-node-postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: afg98ohilk3@ui
+      POSTGRES_USER: postgres
+      POSTGRES_DB: db-test-softdesing-node
+    ports:
+      - "54325:5432"
+    networks:
+      - test-softdesing-node-network
+networks:
+  test-softdesing-node-network:
+    driver: bridge

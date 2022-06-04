@@ -1,0 +1,20 @@
+{
+  "type": "postgres",
+  "host": "test-softdesing-node-postgres",
+  "port": 5432,
+  "username": "postgres",
+  "password": "afg98ohilk3@ui",
+  "database": "db-test-softdesing-node",
+  "synchronize": false,
+  "logging": false,
+  "entities": [
+    "./src/modules/**/infra/typeorm/entities/*.ts"
+  ],
+  "migrations": [
+    "./src/shared/infra/typeorm/migrations/*.ts"
+  ],
+  "seeds": [ "./src/shared/infra/typeorm/seeds/*.ts" ],
+  "cli": { "migrationsDir": "./src/shared/infra/typeorm/migrations" },
+  "factories": [ "src/database/factories/**/*{.ts,.js}" ]
+}
+
