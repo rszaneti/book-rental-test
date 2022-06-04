@@ -22,7 +22,7 @@
   BaseUrl: http://localhost:3345
 </p>
 
-<h3>Módulo "Users"<h3>
+<h3>Módulo "Users"</h3>
 <p align="justify">
   Módulo de usuários que necessitam de autenticação por login gerando um token para acessar a os outros endpoints da aplicação e poder operar suas funcionalidades.
 </p>
@@ -305,7 +305,7 @@
 
 </p>
 
-<h3>Módulo "Customers"<h3>
+<h3>Módulo "Customers"</h3>
 <p align="justify">
   São os clientes que poderão alugar os livros.
 </p>
@@ -526,7 +526,7 @@
 
 </p>
 
-<h3>Módulo "Books"<h3>
+<h3>Módulo "Books"</h3>
 <p align="justify">
   Módulo de cadastro dos livros para aluguel.
 </p>
@@ -829,7 +829,7 @@
 
 </p>
 
-<h3>Módulo "Book Rental"<h3>
+<h3>Módulo "Book Rental"</h3>
 <p align="justify">
   Módulo de aluguel de livros controlando quem levou, quando levou, a data de previsão de retorno, quando retorno, o valor e se teve atraso a taxa por atraso.
 </p>
