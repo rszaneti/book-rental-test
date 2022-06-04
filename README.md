@@ -26,7 +26,7 @@
   Módulo de usuários que necessitam de autenticação por login gerando um token para acessar a os outros endpoints da aplicação e poder operar suas funcionalidades.
 </p>
 
-<h5>Enviar nova senha</h5>
+<h4>Enviar nova senha</h4>
 <p align="justify">
   Irá enviar um e-mail com um link e token para resetar a senha. Para o teste é necessário somente pegar o token do link para inserir no proóximo endpoint "/reset" para mudar a senha.
 </p>
@@ -34,29 +34,36 @@
   Método: POST
   Path: /password/user/forgot
 
-  Request Body: {
+  Request Body:
+
+  ```json
+  {
     username: string;
   }
+  ```
 
   Retorno Status 204.
 </p>
 
-<h5>Mudar a senha</h5>
+<h4>Mudar a senha</h4>
 <p align="justify">
   Método: POST
   Path: /password/user/reset
 
   Request Body:
+
+  ```json
   {
     password: string;
     password_confirmation: string;
     token: string;
   }
+  ```
 
   Retorno Status 204.
 </p>
 
-<h5>Login</h5>
+<h4>Login</h4>
 <p align="justify">
   Autenticação com token para acessar todos os endpoints da aplicação.
 </p>
@@ -64,12 +71,18 @@
   Método: POST
   Path: /sessions/user
 
-  Request Body: {
+  Request Body:
+
+  ```json
+  {
     username: string;
     password: string;
   }
+  ```
 
   Retorno JSON:
+
+  ```json
   {
     user: {
       id: string,
@@ -86,9 +99,11 @@
     },
     token: string;
   }
+  ```
+
 </p>
 
-<h5>Criar usuário</h5>
+<h4>Criar usuário</h4>
 <p align="justify">
   Método: POST
   Autenticação: Authorization: Bearer token
@@ -110,7 +125,7 @@
   }
 </p>
 
-<h5>Atualizar usuário</h5>
+<h4>Atualizar usuário</h4>
 <p align="justify">
   Método: PUT
   Autenticação: Authorization: Bearer token
@@ -130,7 +145,7 @@
   }
 </p>
 
-<h5>Deletar usuário</h5>
+<h4>Deletar usuário</h4>
 <p align="justify">
   Não é permitido deletar o usuário principal.
 </p>
@@ -147,7 +162,7 @@
   Retorno Status 204
 </p>
 
-<h5>Lista de usuários</h5>
+<h4>Lista de usuários</h4>
 <p align="justify">
   Método: GET
   Autenticação: Authorization: Bearer token
@@ -184,7 +199,7 @@
   }
 </p>
 
-<h5>Exibe detalhes do usuário</h5>
+<h4>Exibe detalhes do usuário</h4>
 <p align="justify">
   Método: GET
   Autenticação: Authorization: Bearer token
@@ -213,7 +228,7 @@
   }
 </p>
 
-<h5>Atualizar avatar do usuário</h5>
+<h4>Atualizar avatar do usuário</h4>
 <p align="justify">
   Método: PATCH
   Autenticação: Authorization: Bearer token
@@ -253,7 +268,7 @@
   São os clientes que poderão alugar os livros.
 </p>
 
-<h5>Criar cliente</h5>
+<h4>Criar cliente</h4>
 <p align="justify">
   Método: POST
   Autenticação: Authorization: Bearer token
@@ -281,7 +296,7 @@
   }
 </p>
 
-<h5>Atualizar cliente</h5>
+<h4>Atualizar cliente</h4>
 <p align="justify">
   Método: PUT
   Autenticação: Authorization: Bearer token
@@ -313,7 +328,7 @@
   }
 </p>
 
-<h5>Deletar cliente</h5>
+<h4>Deletar cliente</h4>
 <p align="justify">
   Não é permitido deletar cliente com livro alugado.
 </p>
@@ -330,7 +345,7 @@
   Retorno Status 204
 </p>
 
-<h5>Lista de Clientes</h5>
+<h4>Lista de Clientes</h4>
 <p align="justify">
   Método: GET
   Autenticação: Authorization: Bearer token
@@ -364,7 +379,7 @@
   }
 </p>
 
-<h5>Exibe detalhes do cliente</h5>
+<h4>Exibe detalhes do cliente</h4>
 <p align="justify">
   Método: GET
   Autenticação: Authorization: Bearer token
@@ -393,7 +408,7 @@
   }
 </p>
 
-<h5>Atualizar avatar do cliente</h5>
+<h4>Atualizar avatar do cliente</h4>
 <p align="justify">
   Método: PATCH
   Autenticação: Authorization: Bearer token
@@ -433,7 +448,7 @@
   Módulo de cadastro dos livros para aluguel.
 </p>
 
-<h5>Cadastrar livro</h5>
+<h4>Cadastrar livro</h4>
 <p align="justify">
   Método: POST
   Autenticação: Authorization: Bearer token
@@ -479,7 +494,7 @@
   }
 </p>
 
-<h5>Atualizar livro</h5>
+<h4>Atualizar livro</h4>
 <p align="justify">
   Não é permitido editar livro se está alugado.
 </p>
@@ -530,7 +545,7 @@
   }
 </p>
 
-<h5>Deletar livro</h5>
+<h4>Deletar livro</h4>
 <p align="justify">
   Não é permitido deletar livro se está alugado.
 </p>
@@ -547,7 +562,7 @@
   Retorno Status 204
 </p>
 
-<h5>Lista de livros</h5>
+<h4>Lista de livros</h4>
 <p align="justify">
   Lista os livros para escolha do cliente alugar.
 </p>
@@ -602,7 +617,7 @@
   }
 </p>
 
-<h5>Exibe detalhes do livro</h5>
+<h4>Exibe detalhes do livro</h4>
 <p align="justify">
   Visualiza os detalhes do livro para obter mais informações.
 </p>
@@ -643,7 +658,7 @@
   }
 </p>
 
-<h5>Atualizar avatar do livro</h5>
+<h4>Atualizar avatar do livro</h4>
 <p align="justify">
   Não é permitido editar a imagem do livro se está alugado.
 </p>
@@ -695,7 +710,7 @@
   Módulo de aluguel de livros controlando quem levou, quando levou, a data de previsão de retorno, quando retorno, o valor e se teve atraso a taxa por atraso.
 </p>
 
-<h5>Alugar livro para o cliente</h5>
+<h4>Alugar livro para o cliente</h4>
 <p align="justify">
   Enquanto o livro estiver alugado, não pode ter uma outra operação de aluguel no mesmo período, não pode excluir ou editar o livro e não pode excluir o cliente.
 </p>
@@ -729,7 +744,7 @@
   }
 </p>
 
-<h5>Retorno do livro</h5>
+<h4>Retorno do livro</h4>
 <p align="justify">
   Ao retornar o livro é verificado se há atrasos para aplicar a taxa configurada estaticamente em @config/bookRentalSetting.ts e se já houve baixa no retorno do mesmo.
 </p>
@@ -761,7 +776,7 @@
   }
 </p>
 
-<h5>Listar alugueis</h5>
+<h4>Listar alugueis</h4>
 <p align="justify">
   Método: GET
   Autenticação: Authorization: Bearer token
@@ -831,7 +846,7 @@
   }
 </p>
 
-<h5>Exibe detalhes do aluguel</h5>
+<h4>Exibe detalhes do aluguel</h4>
 <p align="justify">
   Método: GET
   Autenticação: Authorization: Bearer token
