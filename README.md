@@ -14,6 +14,7 @@
 
 <h1>Modelo ER do Banco de dados</h1>
 
+![myimage-alt-tag](https://pdf-service-lucidchart-com.s3.amazonaws.com/4da3edf1-1213-49d5-b59b-3b5b285aa937?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEJr%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJHMEUCIQCrarTKCC0PmaQDOpxO0wr20eFezuWI0qEEqTxVACvM2AIgfEoNQDVa7QWBJl7dX3UfKVrnsfQmOjyR8NuYuBqvrg8q2wQIk%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARAAGgw5MzU2MDY5MjYxODIiDCBJfMBTX3DQ90jcjSqvBI7g677%2FGlxc9rOaQBGvmwtdTobQAxmVY9ROwjfiCvU48SH0RW6sR1Z%2BvAyQGbsFJO0SExwSn1tgRu6aE1k4DgITlfhIGG2Ln6wHKHd8O2yohU29l361tyIPmKOFXiacoNPxkdNQXo5j9iVJWAagrQFgm0ExHhe2yXpzVOzCQy%2FUdh8k4t0B7EEgW6ujJsHmVmA1JsY%2B4QiU%2BJsQOy18fNzsUXd1L2roc6YfCV33SnabMjefLNDTicEm3oro85TlwNRFNA9iytftXlf8Lc4nfBXBeQZLYdaSXpPcBeNFmIQf6l2JtSYy6YiRJii%2BhGrWAAtrefYoJdY%2Fx8W6ekKmjf9x%2BOK%2F%2FOIquWeOPGCs%2FUsVIFoTe%2FMZB30bBc4%2Bkgy2qJhm7AMkCP%2F9f5Zg9oQ905wIZS%2FSr4DDgya5OpvG3dhqQwAMN1TUskB8XaToc%2F8vv0PEedlgmhkw9BJuF0Kx4DGYqWN6IuVR5i04Z0nsNfIZsYvLUSTuoO5jml%2F4vNaJRcE2MmYF%2Bvr56%2FID5U%2F6%2BA6TKSsCy2W93dSlvm%2FZF4m9Jdpj1Ov%2BM1GcqMMZHKjdYd9FsQC8cwXABTKBYP7PoUJ5VxmqdzMV8N4kbqZ%2FKiZt8NNS7V0VE3SZhU9KlZc5aK9Z8UNJGIz3r8dMAt%2F49QjNGrYeVDapLVsBKdl7T10JwEicMa78mj%2FSKBRDgXrCd4M9eifTr0g9AuyBHSCRIdWHtPAGXppLcFB5fnsdo5YwmLfulAY6qQGmVv1FTjkty1BJ7GSCSlEDg%2FlMVYUfN04rbR42fYMjji74ykyh9OeX%2FY%2FI6eaTsVopCzOEKUtD5PROyFGrk94TzBZy6H%2FfUiTduUEPdCYbfi3YVd2V7HsGIkFzWoNb30uKIZva0NZwrK9dC4BvZYNLgeEnd0AjRxs%2FPy3NYq7EOizJqNH3aXHZwFQsTPKi5GlWslg7cLpgDfKP%2FI1nHZMEcx7UZaq%2FEKRl&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20220604T185613Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=ASIA5TVUEXNTFY7JYEXA%2F20220604%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=e7875a0d7416a867ae2f3b86c6a97135739d1da1d374c607a89be4b1019d41a7)
 
 <h1>Endpoints</h1>
 
@@ -110,6 +111,8 @@
   Path: /user
 
   Request Body:
+
+  ```json
   {
     files_id: string;
     username: string required;
@@ -118,11 +121,16 @@
     password: string required;
     password_confirmation: string required;
   }
+  ```
 
   Retorno JSON:
+
+  ```json
   {
     id: string;
   }
+  ```
+
 </p>
 
 <h4>Atualizar usuário</h4>
@@ -132,17 +140,24 @@
   Path: /user
 
   Request Body:
+
+  ```json
   {
     users_id: string required;
     username: string required;
     name: string required;
     email: string required;
   }
+  ```
 
   Retorno JSON:
+
+  ```json
   {
     id: string required;
   }
+  ```
+
 </p>
 
 <h4>Deletar usuário</h4>
@@ -155,9 +170,12 @@
   Path: /user/:id
 
   Params:
+
+  ```json
   {
     id: string required;
   }
+  ```
 
   Retorno Status 204
 </p>
@@ -169,6 +187,8 @@
   Path: /user/
 
   Query:
+
+  ```json
   {
     search_username: string;
     search_name: string;
@@ -177,8 +197,11 @@
     page: string;
     rowsperpage: string;
   }
+  ```
 
   Retorno JSON:
+
+  ```json
   {
     users [Array]: [
       {
@@ -197,6 +220,8 @@
     ],
     userstotal: number
   }
+  ```
+
 </p>
 
 <h4>Exibe detalhes do usuário</h4>
@@ -206,11 +231,16 @@
   Path: /user/show/:id
 
   Params:
+
+  ```json
   {
     id: string;
   }
+  ```
 
   Retorno JSON:
+
+  ```json
   {
     user: {
       id: string,
@@ -226,6 +256,8 @@
       }
     }
   }
+  ```
+
 </p>
 
 <h4>Atualizar avatar do usuário</h4>
@@ -235,17 +267,25 @@
   Path: /user/avatar
 
   Query:
+
+  ```json
   {
     filesid: string - (caso já exista alguma imagem atribuir o id do arquivo na query);
   }
+  ```
 
   Multipart Form:
+
+  ```json
   {
     file: caminho do arquivo;
     users_id: string - (id do usuário);
   }
+  ```
 
   Retorno JSON:
+
+  ```json
   {
     user: {
       id: string,
@@ -261,6 +301,8 @@
       }
     }
   }
+  ```
+
 </p>
 
 <h3>Módulo "Customers"<h3>
@@ -275,14 +317,19 @@
   Path: /customer
 
   Request Body:
+
+  ```json
   {
     files_id: string;
     name: string required;
     email: string required;
     cellphone: string;
   }
+  ```
 
   Retorno JSON:
+
+  ```json
   {
     customer: {
       id: string;
@@ -294,6 +341,8 @@
       updated_at: timestamp;
     }
   }
+  ```
+
 </p>
 
 <h4>Atualizar cliente</h4>
@@ -303,14 +352,19 @@
   Path: /customer
 
   Request Body:
+
+  ```json
   {
     customers_id: string required;
     name: string required;
     email: string required;
     cellphone: string;
   }
+  ```
 
   Retorno JSON:
+
+  ```json
   {
     customer: {
       id: string;
@@ -326,6 +380,8 @@
       }
     }
   }
+  ```
+
 </p>
 
 <h4>Deletar cliente</h4>
@@ -338,9 +394,12 @@
   Path: /customer/:id
 
   Params:
+
+  ```json
   {
     id: string required;
   }
+  ```
 
   Retorno Status 204
 </p>
@@ -352,6 +411,8 @@
   Path: /customer/
 
   Query:
+
+  ```json
   {
     search_name: string;
     search_email: string;
@@ -361,8 +422,11 @@
     page: number;
     rowsperpage: number;
   }
+  ```
 
   Retorno JSON:
+
+  ```json
   {
     customers [Array]: [
       {
@@ -377,6 +441,8 @@
     ],
     customerstotal: number
   }
+  ```
+
 </p>
 
 <h4>Exibe detalhes do cliente</h4>
@@ -386,11 +452,16 @@
   Path: /customer/show/:id
 
   Params:
+
+  ```json
   {
     id: string;
   }
+  ```
 
   Retorno JSON:
+
+  ```json
   {
     customer: {
       id: string,
@@ -406,6 +477,8 @@
       }
     }
   }
+  ```
+
 </p>
 
 <h4>Atualizar avatar do cliente</h4>
@@ -415,17 +488,25 @@
   Path: /customer/avatar
 
   Query:
+
+  ```json
   {
     filesid: string - (caso já exista alguma imagem atribuir o id do arquivo na query);
   }
+  ```
 
   Multipart Form:
+
+  ```json
   {
     file: caminho do arquivo;
     customers_id: string - (id do cliente);
   }
+  ```
 
   Retorno JSON:
+
+  ```json
   {
     customer: {
       id: string,
@@ -441,6 +522,8 @@
       }
     }
   }
+  ```
+
 </p>
 
 <h3>Módulo "Books"<h3>
@@ -455,6 +538,8 @@
   Path: /book
 
   Request Body:
+
+  ```json
   {
     files_id: string;
     title: string required;
@@ -470,8 +555,11 @@
     lease_value: number;
     status: boolean;
   }
+  ```
 
   Retorno JSON:
+
+  ```json
   {
     book: {
       id: string,
@@ -492,6 +580,8 @@
       updated_at: timestamp
     }
   }
+  ```
+
 </p>
 
 <h4>Atualizar livro</h4>
@@ -504,6 +594,8 @@
   Path: /book
 
   Request Body:
+
+  ```json
   {
     books_id: string required;
     title: string required;
@@ -519,8 +611,11 @@
     lease_value: number;
     status: boolean;
   }
+  ```
 
   Retorno JSON:
+
+  ```json
   {
     book: {
       id: string,
@@ -543,6 +638,8 @@
       }
     }
   }
+  ```
+
 </p>
 
 <h4>Deletar livro</h4>
@@ -555,9 +652,12 @@
   Path: /customer/:id
 
   Params:
+
+  ```json
   {
     id: string required;
   }
+  ```
 
   Retorno Status 204
 </p>
@@ -572,6 +672,8 @@
   Path: /book/
 
   Query:
+
+  ```json
   {
     search_title: string;
     search_author: string;
@@ -586,8 +688,11 @@
     page: string;
     rowsperpage: string;
   }
+  ```
 
   Retorno JSON:
+
+  ```json
   {
     books [Array]: [
       {
@@ -615,6 +720,8 @@
     ],
     bookstotal: number
   }
+  ```
+
 </p>
 
 <h4>Exibe detalhes do livro</h4>
@@ -627,11 +734,16 @@
   Path: /book/show/:id
 
   Params:
+
+  ```json
   {
     id: string;
   }
+  ```
 
   Retorno JSON:
+
+  ```json
   {
     book: {
       id: string,
@@ -656,6 +768,8 @@
       }
     }
   }
+  ```
+
 </p>
 
 <h4>Atualizar avatar do livro</h4>
@@ -668,17 +782,25 @@
   Path: /book/image
 
   Query:
+
+  ```json
   {
     filesid: string - (caso já exista alguma imagem atribuir o id do arquivo na query);
   }
+  ```
 
   Multipart Form:
+
+  ```json
   {
     file: caminho do arquivo;
     books_id: string - (id do livro);
   }
+  ```
 
   Retorno JSON:
+
+  ```json
   {
     book: {
       id: string,
@@ -703,6 +825,8 @@
       }
     }
   }
+  ```
+
 </p>
 
 <h3>Módulo "Book Rental"<h3>
@@ -720,13 +844,18 @@
   Path: /book-rental
 
   Request Body:
+
+  ```json
   {
     customers_id: string required;
     books_id: string required;
     lease_value: number;
   }
+  ```
 
   Retorno JSON:
+
+  ```json
   {
     bookrental: {
       id: string;
@@ -742,6 +871,8 @@
       updated_at: timestamp;
     }
   }
+  ```
+
 </p>
 
 <h4>Retorno do livro</h4>
@@ -754,11 +885,16 @@
   Path: /book-rental/return
 
   Request Body:
+
+  ```json
   {
     book_rentals_id: string required;
   }
+  ```
 
   Retorno JSON:
+
+  ```json
   {
     bookrental: {
       id: string;
@@ -774,6 +910,8 @@
       updated_at: timestamp;
     }
   }
+  ```
+
 </p>
 
 <h4>Listar alugueis</h4>
@@ -783,6 +921,8 @@
   Path: /book-rental/
 
   Query:
+
+  ```json
   {
     search_customers: string;
     search_books: string;
@@ -797,8 +937,11 @@
     page: string;
     rowsperpage: string;
   }
+  ```
 
   Retorno JSON:
+
+  ```json
   {
     bookrentals [Array]: [
       {
@@ -844,6 +987,8 @@
     ],
     bookstotal: number
   }
+  ```
+
 </p>
 
 <h4>Exibe detalhes do aluguel</h4>
@@ -853,11 +998,16 @@
   Path: /book-rental/show/:id
 
   Params:
+
+  ```json
   {
     id: string;
   }
+  ```
 
   Retorno JSON:
+
+  ```json
   {
     bookrental: {
       id: string;
@@ -873,6 +1023,8 @@
       updated_at: timestamp;
     }
   }
+  ```
+
 </p>
 
 
@@ -967,7 +1119,7 @@ git clone https://github.com/rszaneti/book-rental-test
 </p>
 
 <p align="justify">
-  <strong>Passo 5:</strong> Utilize alguma ferramenta para testar as rotas como Insomnia ou Postman. Em anexo ao projeto na pasta ./src/tmp/insomnia está o arquivo exportado com as rotas para teste.
+  <strong>Passo 5:</strong> Utilize alguma ferramenta para testar as rotas como Insomnia ou Postman. Em anexo ao projeto na pasta ./src/assest/insomnia está o arquivo exportado com as rotas para teste.
 </p>
 
 <h1>Como rodar os testes</h1>
